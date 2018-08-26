@@ -14,7 +14,7 @@ class Rps < Sinatra::Base
     player_1 = Player.new(params[:player_1_name])
     player_2 = Player.new(params[:player_2_name])
     @game = Game.create(player_1, player_2, session[:game_type])
-    @game_type = session[:game_type]
+    @game_type = @game.game_type
     @player_1_name = @game.player_1.name
     @player_2_name = @game.player_2.name
     @current_player_name = @game.current_player.name
@@ -57,7 +57,7 @@ class Rps < Sinatra::Base
   get '/replay' do
     @game = Game.instance
     @game_type = @game.game_type
-    @current_player = @game.current_player
+    @current_player_name = @game.current_player.name
     @player_1_name = @game.player_1.name
     @player_2_name = @game.player_2.name
     erb :play
