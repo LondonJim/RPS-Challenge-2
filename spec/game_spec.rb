@@ -2,7 +2,7 @@ require 'game'
 
 describe Game do
 
-  subject(:game) { Game.new('Player', 'COMPUTER', 'STANDARD')}
+  subject(:game) { Game.new('Player', 'COMPUTER', 'STANDARD') }
 
   describe '#player_1' do
     it 'retrieves player' do
@@ -38,7 +38,7 @@ describe Game do
       end
 
       it "'ROCK' & 'ROCK'" do
-        expect(game.result(tie)).to eq "ROCK and ROCK\nIt's a tie!"
+        expect(game.result(tie)).to eq "ROCK and ROCK</br>It's a tie!"
       end
 
     end

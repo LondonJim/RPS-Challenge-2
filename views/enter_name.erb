@@ -1,17 +1,21 @@
-Enter name<%= "s" if @players == "2 Players"%>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+Enter name<%= "s" if @players == "2 Players"%>:</br></br>
 
 <form action="/enter_name" method="post">
   <label for="player_1_name">
     <input type="text" name="player_1_name" value="Player 1">
   </label>
-  </br>
   <% if @players == "2 Players" %>
+    </br></br>
     <label for="player_2_name">
       <input type="text" name="player_2_name" value="Player 2">
     </label>
     <% else %>
       <input type="hidden" name="player_2_name" value="COMPUTER">
   <% end %>
-  </br>
-  <input type="submit" value="Submit">
+</br></br>
+  <button type="submit" value="Submit">Submit</button>
 </form>

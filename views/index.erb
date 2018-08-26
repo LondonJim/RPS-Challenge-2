@@ -1,6 +1,11 @@
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
 <h1>Rock, Paper, Scissors!</h1>
 
-Select how many players and game type:
+Select how many players and game type:</br></br>
+
 <form action="/player_game_select" method="post">
   <select name="player_num" required>
     <option value="1 Player">1 Player</option>
@@ -10,5 +15,5 @@ Select how many players and game type:
     <option value="STANDARD">STANDARD: ROCK, PAPER, SCISSORS</option>
     <option value="EXTENDED">EXTENDED: ROCK, PAPER, SCISSORS, LIZARD, SPOCK</option>
   </select>
-  <input type="submit" value="Submit">
+  <button type="submit" value="Submit">Submit</button>
 </form>

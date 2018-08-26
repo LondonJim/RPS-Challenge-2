@@ -17,11 +17,11 @@ class Player
 
   private
   def standard_random
-    ['ROCK','PAPER','SCISSORS'].sample
+    ['ROCK', 'PAPER', 'SCISSORS'].sample
   end
 
   def extended_random
-    ['ROCK','PAPER','SCISSORS','LIZARD','SPOCK'].sample
+    ['ROCK', 'PAPER', 'SCISSORS', 'LIZARD', 'SPOCK'].sample
   end
 
 end

@@ -1,21 +1,23 @@
-<%= @player_1_name %> vs. <%= @player_2_name %></br>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-Let's play a game of Rock, Paper, Scissors!</br>
+<%= @player_1_name %> vs. <%= @player_2_name %></br>
 
 <%= @current_player_name %> choose your move:</br>
 </br>
 
 <form action="/play" method="post">
-<% if @current_player_name == "COMPUTER" %>
-  Computer has chosen a move...</br>
-  <button name="player_move" type="submit" value="">READY</button>
-<% else %>
-  <button name="player_move" type="submit" value="ROCK">ROCK</button>
-  <button name="player_move" type="submit" value="PAPER">PAPER</button>
-  <button name="player_move" type="submit" value="SCISSORS">SCISSORS</button>
+  <% if @current_player_name == "COMPUTER" %>
+      The Computer has chosen a move...</br></br>
+      <button name="player_move" type="submit" value="">READY</button>
+    <% else %>
+        <button name="player_move" type="submit" value="ROCK">ROCK</button>
+        <button name="player_move" type="submit" value="PAPER">PAPER</button>
+        <button name="player_move" type="submit" value="SCISSORS">SCISSORS</button>
     <% if @game_type == "EXTENDED" %>
-    <button name="player_move" type="submit" value="LIZARD">LIZARD</button>
-    <button name="player_move" type="submit" value="SPOCK">SPOCK</button>
+        <button name="player_move" type="submit" value="LIZARD">LIZARD</button>
+        <button name="player_move" type="submit" value="SPOCK">SPOCK</button>
     <% end %>
 </form>
-<% end %>
+  <% end %>

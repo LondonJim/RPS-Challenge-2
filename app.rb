@@ -54,7 +54,6 @@ class Rps < Sinatra::Base
     erb :enter_name
   end
 
-
   get '/replay' do
     @game = Game.instance
     @game_type = @game.game_type
