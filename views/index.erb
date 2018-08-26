@@ -1,6 +1,14 @@
 <h1>Rock, Paper, Scissors!</h1>
-Please enter your name:
-<form action="/enter_name" method="post">
-  <input type="text" name="player_name" value="Player">
+
+Select how many players and game type:
+<form action="/player_game_select" method="post">
+  <select name="player_num" required>
+    <option value="1 Player">1 Player</option>
+    <option value="2 Players">2 Player</option>
+  </select>
+  <select name="game_type" required>
+    <option value="STANDARD">STANDARD: ROCK, PAPER, SCISSORS</option>
+    <option value="EXTENDED">EXTENDED: ROCK, PAPER, SCISSORS, LIZARD, SPOCK</option>
+  </select>
   <input type="submit" value="Submit">
 </form>

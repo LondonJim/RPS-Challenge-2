@@ -7,8 +7,21 @@ class Player
     @move = nil
   end
 
-  def set_move(move = nil)
-    @move = (move == nil ? ['ROCK','PAPER','SCISSORS'].sample : move)
+  def standard_game(player_move = "")
+    @move = (player_move == "" ? standard_random : player_move)
+  end
+
+  def extended_game(player_move = "")
+    @move = (player_move == "" ? extended_random : player_move)
+  end
+
+  private
+  def standard_random
+    ['ROCK','PAPER','SCISSORS'].sample
+  end
+
+  def extended_random
+    ['ROCK','PAPER','SCISSORS','LIZARD','SPOCK'].sample
   end
 
 end
