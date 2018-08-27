@@ -12,10 +12,6 @@ class Rps < Sinatra::Base
     @game = Game.instance
     @game.player_1.name = params[:player_1_name]
     @game.player_2.name = params[:player_2_name]
-    redirect '/start_game'
-  end
-
-  get '/start_game' do
     game_variable_set
     @current_player_name = @game.current_player.name
     erb :play
