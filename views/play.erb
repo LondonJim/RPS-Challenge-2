@@ -9,15 +9,15 @@
 
 <form action="/play" method="post">
   <% if @current_player_name == "COMPUTER" %>
-      The Computer has chosen a move...</br></br>
-      <button name="player_move" type="submit" value="">READY</button>
-    <% else %>
-        <button name="player_move" type="submit" value="ROCK">ROCK</button>
-        <button name="player_move" type="submit" value="PAPER">PAPER</button>
-        <button name="player_move" type="submit" value="SCISSORS">SCISSORS</button>
+       The Computer has chosen a move...</br></br>
+       <button name="player_move" type="submit" value="">READY</button>
+  <% else %>
+       <button name="player_move" type="submit" value="ROCK">ROCK</button>
+       <button name="player_move" type="submit" value="PAPER">PAPER</button>
+       <button name="player_move" type="submit" value="SCISSORS">SCISSORS</button>
     <% if @game_type == "EXTENDED" %>
         <button name="player_move" type="submit" value="LIZARD">LIZARD</button>
         <button name="player_move" type="submit" value="SPOCK">SPOCK</button>
     <% end %>
-</form>
+    </form>
   <% end %>

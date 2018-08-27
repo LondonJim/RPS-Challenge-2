@@ -4,29 +4,25 @@ require_relative './lib/player'
 
 class Rps < Sinatra::Base
 
-  enable :sessions
-
   get '/' do
     erb :index
   end
 
   post '/enter_name' do
-    player_1 = Player.new(params[:player_1_name])
-    player_2 = Player.new(params[:player_2_name])
-    @game = Game.create(player_1, player_2, session[:game_type])
-    @game_type = @game.game_type
-    @player_1_name = @game.player_1.name
-    @player_2_name = @game.player_2.name
+    @game = Game.instance
+    @game.player_1.name = params[:player_1_name]
+    @game.player_2.name = params[:player_2_name]
+    redirect '/start_game'
+  end
+
+  get '/start_game' do
+    game_variable_set
     @current_player_name = @game.current_player.name
     erb :play
   end
 
   post '/play' do
-    @game = Game.instance
-    @game_type = @game.game_type
-    @player_1_name = @game.player_1.name
-    @player_2_name = @game.player_2.name
-
+    game_variable_set
     if @game.game_type == "STANDARD"
       @game.current_player.standard_game(params[:player_move])
     else
@@ -44,23 +40,27 @@ class Rps < Sinatra::Base
       @game.switch_player
       erb :game_result
     end
-
   end
 
   post '/player_game_select' do
-    session[:players] = params[:player_num]
-    session[:game_type] = params[:game_type]
-    @players = session[:players]
+    player_1 = Player.new(params[:player_1_name])
+    player_2 = Player.new(params[:player_2_name])
+    @game = Game.create(player_1, player_2, params[:game_type])
+    @players = params[:player_num]
     erb :enter_name
   end
 
   get '/replay' do
+    game_variable_set
+    @current_player_name = @game.current_player.name
+    erb :play
+  end
+
+  def game_variable_set
     @game = Game.instance
     @game_type = @game.game_type
-    @current_player_name = @game.current_player.name
     @player_1_name = @game.player_1.name
     @player_2_name = @game.player_2.name
-    erb :play
   end
 
   run! if app_file == $0
