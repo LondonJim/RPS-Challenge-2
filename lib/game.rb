@@ -13,6 +13,14 @@ class Game
     @current_player == @player_1 ? @current_player = @player_2 : @current_player = @player_1
   end
 
+  def player_move_game_type(move)
+    if game_type == "STANDARD"
+      @current_player.standard_game
+    else
+      @current_player.extended_game
+    end
+  end
+
   def result(moves)
     return "#{moves[0]} and #{moves[1]}</br>It's a tie!" if moves[0] == moves[1]
     game_outcomes.each do |key, value|

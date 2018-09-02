@@ -19,12 +19,7 @@ class Rps < Sinatra::Base
 
   post '/play' do
     game_variable_set
-    if @game.game_type == "STANDARD"
-      @game.current_player.standard_game(params[:player_move])
-    else
-      @game.current_player.extended_game(params[:player_move])
-    end
-
+    @game.player_move_game_type(params[:player_move])
     if @game.current_player == @game.player_1
       @game.switch_player
       @current_player_name = @game.current_player.name
